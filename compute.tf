@@ -9,7 +9,8 @@ resource "google_compute_instance" "ubuntu-xenial" {
    }
 }
 network_interface {
-   network = "default"
+   subnetwork = "development-subnet" # To drop the instance in a specific subnet
+   # network = "default" - Default VPC
    access_config {}
 }
 service_account {
