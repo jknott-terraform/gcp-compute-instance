@@ -3,6 +3,12 @@ resource "google_compute_instance" "ubuntu-xenial" {
    name = "ubuntu-xenial"
    machine_type = "f1-micro"
    zone = "us-central1-a"
+   tags = [
+    "${var.subnet}-firewall-ssh",
+    "${var.subnet}-firewall-http",
+    "${var.subnet}-firewall-https",
+    "${var.subnet}-firewall-icmp",
+  ]
    boot_disk {
       initialize_params {
       image = "ubuntu-1604-lts"
